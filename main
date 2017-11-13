@@ -1,10 +1,13 @@
 #!/bin/bash
 #test
 mkdir test123
+echo "test 123"
 # install kubernetes
-git clone https://github.com/kubernetes/kubernetes.git
-cd kubernetes
-make release
+
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+
 # install docker
 apt-get update
 apt-get install -y apt-transport-https ca-certificates
