@@ -28,3 +28,5 @@ apt-get install -y docker-engine
 service docker start
 
 apt-get install -y vim
+
+mkdir /test
