@@ -1,13 +1,10 @@
 #!/bin/bash
-
 #test
-mkdir /test123
+mkdir test123
 # install kubernetes
 git clone https://github.com/kubernetes/kubernetes.git
 cd kubernetes
 make release
-
-
 # install docker
 apt-get update
 apt-get install -y apt-transport-https ca-certificates
@@ -22,4 +19,4 @@ apt-get install -y linux-image-extra-"$(uname -r)"
 apt-get install -y docker-engine
 service docker start
 apt-get install -y vim
-mkdir /test
+mkdir test
