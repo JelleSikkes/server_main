@@ -1,13 +1,13 @@
 #!/bin/bash
 #test
-mkdir -p /test123
-mkdir -p test1234
-echo "test 123"
 # install kubernetes
 
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-chmod 700 get_helm.sh
-./get_helm.sh
+curl https://get.k8s.io > kubernetes_install.sh
+bash kubernetes_install.sh
+
+#install salt master
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+sudo sh bootstrap-salt.sh -M -N git develop
 
 # install docker
 apt-get update
@@ -24,3 +24,4 @@ apt-get install -y docker-engine
 service docker start
 apt-get install -y vim
 echo "Done!"
+
