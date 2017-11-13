@@ -23,4 +23,4 @@ apt-get install -y linux-image-extra-"$(uname -r)"
 apt-get install -y docker-engine
 service docker start
 apt-get install -y vim
-mkdir /test
+echo "Done!"
