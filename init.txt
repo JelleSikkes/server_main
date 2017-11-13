@@ -1,0 +1,6 @@
+$ cat > cloudinit.sh <<EOF
+> #!/bin/bash
+> apt-get update
+> apt-get -y install apache2
+> a2ensite 000-default
+> EOF
