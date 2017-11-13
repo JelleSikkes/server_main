@@ -1,17 +1,24 @@
 #!/bin/bash
-#test
 # install kubernetes
 
-curl -o https://get.k8s.io > kubernetes_install.sh
-bash kubernetes_install.sh
-curl https://storage.googleapis.com/kubernetes-release/release/v1.2.0/bin/darwin/amd64/kubectl > kubectl
-chmod 750 kubectl
-cat ~/.kube/config
+#curl -o https://get.k8s.io > kubernetes_install.sh
+#bash kubernetes_install.sh
+#curl https://storage.googleapis.com/kubernetes-release/release/v1.2.0/bin/darwin/amd64/kubectl > kubectl
+#chmod 750 kubectl
+#cat ~/.kube/config
 
 
 #install salt master
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
 sudo sh bootstrap-salt.sh -M -N git develop
+
+#syslog
+yum-config-manager --enable epel
+yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/czanik/syslog-ng39epel6/repo/epel-6/czanik-syslog-ng39epel6-epel-6.repo
+rpm -e --nodeps rsyslog
+yum install -y syslog-ng
+chkconfig syslog-ng on
+/etc/init.d/syslog-ng start
 
 # install docker
 apt-get update
