@@ -1,12 +1,13 @@
 #!/bin/bash
+
+#test
+mkdir /test123
 # install kubernetes
-set -e
-VERSION=${VERSION:-v1.3.0}
-OS=${OS:-darwin}
-ARCH=${ARCH:-amd64}
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/"$VERSION"/minikube-"$OS"-"$ARCH" \
-  && chmod +x minikube \
-&& sudo mv minikube /usr/local/bin/
+git clone https://github.com/kubernetes/kubernetes.git
+cd kubernetes
+make release
+
+
 # install docker
 apt-get update
 apt-get install -y apt-transport-https ca-certificates
