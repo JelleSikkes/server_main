@@ -2,8 +2,12 @@
 #test
 # install kubernetes
 
-curl https://get.k8s.io > kubernetes_install.sh
+curl -o https://get.k8s.io > kubernetes_install.sh
 bash kubernetes_install.sh
+curl https://storage.googleapis.com/kubernetes-release/release/v1.2.0/bin/darwin/amd64/kubectl > kubectl
+chmod 750 kubectl
+cat ~/.kube/config
+
 
 #install salt master
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
