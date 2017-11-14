@@ -4,8 +4,8 @@ add-apt-repository ppa:saltstack/salt
 
 apt-get install salt-minion
 
-sh -c "echo 'master: 145.37.234.244' >> /etc/salt/minion"
+echo 'master: 145.37.234.244' >> /etc/salt/minion
 
-sh -c "echo 'log_file: /var/log/salt/minion' >> /etc/salt/minion"
-sh -c "echo 'log_level_logfile: debug' >> /etc/salt/minion"
+echo 'log_file: /var/log/salt/minion' >> /etc/salt/minion
+echo 'log_level_logfile: debug' >> /etc/salt/minion
 service salt-minion restart
