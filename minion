@@ -3,6 +3,5 @@
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
 sudo sh bootstrap-salt.sh git develop
 
-
-sudo apt-get install salt-minion
-echo 'master: 145.37.234.244' >> /etc/salt/minion
+sudo apt-get install salt-minion -y
+echo 'master: 10.10.9.28' >> /etc/salt/minion
