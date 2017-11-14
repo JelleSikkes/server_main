@@ -1,8 +1,12 @@
 #!/bin/bash
 
-curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sudo sh bootstrap-salt.sh git develop
-
+wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+deb http://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest xenial main
 sudo apt-get install salt-minion -y
-echo 'master: 10.10.9.28' >> /etc/salt/minion
+sudo apt-get install salt-ssh -y
+sudo apt-get install salt-syndic -y
+sudo apt-get install salt-cloud -y
+sudo apt-get install salt-api -y
+sudo systemctl restart salt-minion
+echo "master: 10.10.9.28" >> /etc/salt/minion
 sudo systemctl restart salt-minion
