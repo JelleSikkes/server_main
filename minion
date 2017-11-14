@@ -10,3 +10,6 @@ sudo apt-get install salt-api -y
 sudo systemctl restart salt-minion
 echo "master: 10.10.9.28" >> /etc/salt/minion
 sudo systemctl restart salt-minion
+
+cd /etc
+sed "1 a127.0.1.1 $HOSTNAME" hosts

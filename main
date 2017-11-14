@@ -11,6 +11,11 @@
 #install salt master
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
 sudo sh bootstrap-salt.sh -M -N git develop
+sudo systemctl restart salt-master
+echo "interface: 10.0.0.1" >> /etc/salt/master
+sudo systemctl restart salt-master
+cd /etc
+sed "1 a127.0.1.1 $HOSTNAME" hosts
 
 #syslog
 yum-config-manager --enable epel
