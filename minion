@@ -5,3 +5,4 @@ sudo sh bootstrap-salt.sh git develop
 
 sudo apt-get install salt-minion -y
 echo 'master: 10.10.9.28' >> /etc/salt/minion
+sudo systemctl restart salt-minion
