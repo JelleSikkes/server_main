@@ -1,6 +1,9 @@
 #!/bin/bash
 # install kubernetes
 
+apt-get upgrade
+apt-get update
+
 #curl -o https://get.k8s.io > kubernetes_install.sh
 #bash kubernetes_install.sh
 #curl https://storage.googleapis.com/kubernetes-release/release/v1.2.0/bin/darwin/amd64/kubectl > kubectl
@@ -38,4 +41,3 @@ apt-get install syslog-ng -y
 #apt-get install -y docker-engine
 #service docker start
 #apt-get install -y vim
-#echo "Done!"
