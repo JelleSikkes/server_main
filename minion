@@ -12,7 +12,7 @@ sudo apt-get install salt-syndic -y
 sudo apt-get install salt-cloud -y
 sudo apt-get install salt-api -y
 sudo systemctl restart salt-minion
-echo "master: 10.10.9.38" >> /etc/salt/minion
+echo "master: 10.10.9.46" >> /etc/salt/minion
 sudo systemctl restart salt-minion
 
 sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
