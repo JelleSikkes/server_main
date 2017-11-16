@@ -3,8 +3,6 @@
 
 apt-get upgrade
 apt-get update
-
-#curl -o https://get.k8s.io > kubernetes_install.sh
 #bash kubernetes_install.sh
 #curl https://storage.googleapis.com/kubernetes-release/release/v1.2.0/bin/darwin/amd64/kubectl > kubectl
 #chmod 750 kubectl
@@ -21,10 +19,6 @@ echo "interface: 10.0.1.1" >> /etc/salt/master
 sudo systemctl restart salt-master
 cd /etc
 sed -i "1 a127.0.1.1 $HOSTNAME" hosts
-
-#syslog
-apt-get install syslog-ng -y
-
 
 
 #install docker
