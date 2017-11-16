@@ -2,18 +2,12 @@
 
 #syslog
 apt-get install syslog-ng -y
-service syslog-ng start
 
 ipaddress=$(hostname -I)
 
 etc/syslog-ng/syslog-ng.conf
 
-sed -i "s/#source s_net { tcp(ip(127.0.0.1) port(1000)); };/source s_net { tcp(ip($ipaddress) port(51234)); };" etc/syslog-ng/syslog-ng.conf
-sed '/source s_src {
-             system();
-             internal();
-      };/d etc/syslog-ng/syslog-ng.conf;
+sed -i "s\#source s_net { tcp(ip(127.0.0.1) port(1000)); };\source s_net { tcp(ip($'ipaddress') port(51234)); };\ " /etc/syslog-ng/syslog-ng.conf
+sed -i -e "/source s_sr.*/,+3d" /etc/syslog-ng/syslog-ng.conf
 
-
-
-source s_internal{internal();pipe("/proc/mksg");unix-stream("/dev/log");}
+service syslog-ng start
