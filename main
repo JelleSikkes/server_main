@@ -10,8 +10,8 @@ apt-get update
 
 
 #install salt master
-#curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-#sh bootstrap-salt.sh -M -N git develop
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+sh bootstrap-salt.sh -M -N git develop
 
 apt-get install salt-master -y
 echo "interface: 10.0.1.1" >> /etc/salt/master
