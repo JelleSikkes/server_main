@@ -11,15 +11,12 @@ apt-get update
 
 #install salt master
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sudo sh bootstrap-salt.sh -M -N git develop
+sh bootstrap-salt.sh -M -N git develop
 apt-get update
-sudo apt-get install salt-master -y
-sudo systemctl restart salt-master
+apt-get install salt-master -y
 echo "interface: 10.0.1.1" >> /etc/salt/master
-sudo systemctl restart salt-master
-
 sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
-
+systemctl restart salt-master
 
 #install docker
 #apt-get update
