@@ -12,3 +12,4 @@ sed -i "s\#source s_net { tcp(ip(127.0.0.1) port(1000)); };\source s_net { tcp(i
 
 service syslog-ng stop
 service syslog-ng start
+
