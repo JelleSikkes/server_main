@@ -15,7 +15,7 @@ apt-get update
 apt-get install salt-master -y
 echo "interface: 10.0.1.1" >> /etc/salt/master
 systemctl restart salt-master
-sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
+sed -i "1 a127.0.1.1 $HOSTNAME" >> /etc/hosts
 systemctl restart salt-master
 
 #install docker
