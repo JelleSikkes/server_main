@@ -1,0 +1,31 @@
+#!/bin/bash
+apt-get install python-pygit2 -y
+curl --silent -O https://kojipkgs.fedoraproject.org//packages/http-parser/2.0/5.20121128gitcd01361.el7/x86_64/http-parser-2.0-5.20121128gitcd01361.el7.x86_64.rpm
+apt install rpm -y
+rpm -Uvh --oldpackage http-parser-2.0-5.20121128gitcd01361.el7.x86_64.rpm
+
+systemctl restart salt-master
+
+apt-get install python-git
+pip install 'GitPython<2.0.9'
+
+#echo "fileserver_backend:
+#  - git " >> /etc/syslog-ng/syslog-ng.conf
+#echo "gitfs_remotes:
+#  - https://github.com/saltstack-formulas/salt-formula.git " >> /etc/syslog-ng/syslog-ng.conf
+#file_roots:
+#   base:
+#     - /srv/salt
+
+
+salt '*' syslog_ng.start
+
+#log localtie -->
+
+# /var/log/syslog
+# /var/log/master
+# /var/log/minion
+#log_file=/var/log/syslog
+
+
+sed -i "s\log_file=/usr/local/naguios/var/nagios.log\log_file=/var/log/syslog\ " /usr/local/nagios/etc/nagios.cfg

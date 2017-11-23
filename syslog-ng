@@ -13,6 +13,7 @@ sed -i "s\#source s_net { tcp(ip(127.0.0.1) port(1000)); };\source s_net { tcp(i
 service syslog-ng stop
 service syslog-ng start
 
-echo "tcp(default-facility(syslog) default-priority(emerg));
-       };" >> /etc/syslog-ng/syslog-ng.conf
-echo "log { source(remote_log_host); destination(debugging_console); };" >> /etc/syslog-ng/syslog-ng.conf
+#echo "tcp(default-facility(syslog) default-priority(emerg));
+#       };" >> /etc/syslog-ng/syslog-ng.conf
+#echo "log { source(remote_log_host); destination(debugging_console); };" >> /etc/syslog-ng/syslog-ng.conf
+
