@@ -12,7 +12,7 @@ sudo apt-get install salt-syndic -y
 sudo apt-get install salt-cloud -y
 sudo apt-get install salt-api -y
 sudo systemctl restart salt-minion
-echo "master: 10.10.9.74" >> /etc/salt/minion
+echo "master: 10.10.9.76" >> /etc/salt/minion
 sudo systemctl restart salt-minion
 
 sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
@@ -20,7 +20,7 @@ sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
 
 #syslog
 #apt-get install syslog-ng -y
-#sed -i "s\#destination d_net { tcp(\"127.0.0.1\" port(1000) log_fifo_size(1000)); };\destination d_net { tcp(\"10.10.9.74\" port(51234) log_fifo_size(1000)); };\ " /etc/syslog-ng/syslog-ng.conf
+#sed -i "s\#destination d_net { tcp(\"127.0.0.1\" port(1000) log_fifo_size(1000)); };\destination d_net { tcp(\"10.10.9.76\" port(51234) log_fifo_size(1000)); };\ " /etc/syslog-ng/syslog-ng.conf
 
 #sed -i "s\#log { source(s_src); destination(d_net); };\log { source(s_src); destination(d_net); };\ " /etc/syslog-ng/syslog-ng.conf
 
