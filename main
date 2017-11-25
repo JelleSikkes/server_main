@@ -9,12 +9,13 @@ apt-get update
 #cat ~/.kube/config
 
 #install salt master
-#curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-#sh bootstrap-salt.sh -M -N git develop
-
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+sh bootstrap-salt.sh -M -N git develop
+apt-get update
 apt-get install salt-master -y
-echo "interface: 10.0.1.1" >> /etc/salt/master
-systemctl restart salt-master
+sudo systemctl restart salt-master
+#echo "interface: 10.0.1.1" >> /etc/salt/master
+sudo systemctl restart salt-master
 sed -i "1 a127.0.1.1 $HOSTNAME" /etc/hosts
 systemctl restart salt-master
 
