@@ -1,5 +1,5 @@
-wp:
-  dbname: wordpress
-  dbuser: wordpress
-  dbpass: root
-  dbhost: localhost
+base:
+  '*':
+    - php
+    - apache
+    - word

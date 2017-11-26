@@ -9,17 +9,17 @@ wordpress-packages:
 get_wordpress:
   cmd.run:
     - name: 'wget -q -O - http://wordpress.org/latest.tar.gz | tar zxf - '
-    - cwd: /var/www
-    - creates: /var/www/wordpress/index.php
+    - cwd: /var/www/html
+    - creates: /var/www/html/wordpress/index.php
     - runas: root
 
-/var/www/html/wordpress/wp-config-sample.php:
+/var/www/html/wordpress/wp-config.php:
   file.managed:
-    - source: salt://vm/wp-config-sample.php
+    - source: salt://vm/wp-config.php
     - user: www-data
     - group: www-data
 
-/var/www/wordpress:
+/var/www/html/wordpress:
   file.directory:
     - user: www-data
     - group: www-data
@@ -33,21 +33,5 @@ get_wordpress:
 /etc/php/7.0/fpm/pool.d/www.conf:
   file.replace:
     - pattern: "listen = /var/run/php7.0-fpm.sock"
-    - repl: "listen = 127.0.0.1:8000"
+    - repl: "listen = 127.0.0.1:9000"
     - append_if_not_found: True
-
-/etc/nginx/sites-available/vhost.conf:
-  file.managed:
-    - source: salt://vm/vhost.conf
-    - user: root
-    - group: wheel
-    - mode: 644
-
-/etc/nginx/sites-enabled/vhost.conf:
-  file.symlink:
-    - target: /etc/nginx/sites-available/vhost.conf
-
-nginx:
-  service.running:
-    - watch:
-      - file: /etc/nginx/sites-enabled/vhost.conf
