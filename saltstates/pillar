@@ -1,5 +1,5 @@
 base:
   '*':
     - php
-    - apache
-    - word
+    - apache2
+    - wordpress
